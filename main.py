@@ -40,7 +40,7 @@ class AdminTestCreationStates(StatesGroup):
     waiting_for_question = State()  # Ожидание ввода текста вопроса
     waiting_for_correct_answer = State()  # Ожидание ввода правильного ответа
     waiting_for_incorrect_answers = State()  # Ожидание ввода неправильных ответов
-
+qqq
 
 @dp.message(Command("state"))  # /state
 async def check_state(message: Message, state: FSMContext):
