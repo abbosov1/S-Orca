@@ -46,38 +46,5 @@ CREATE TABLE IF NOT EXISTS reviews (
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 """)
-# Создание таблицы отзывов
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS ratings (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    rating INTEGER NOT NULL,
-    timestamp DATETIME NOT NULL
-)
-""")
-# Создадим таблицу tests, если её нет:
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS tests (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    subject TEXT,
-    class TEXT,
-    questions_ru TEXT,
-    questions_uz TEXT,
-    answers TEXT
-)
-""")
-# Создадим таблицу tests, если её нет:
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS tests (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    subject TEXT,
-    class TEXT,
-    question_text_ru TEXT,
-    question_text_uz TEXT,
-    correct_answer TEXT,
-    incorrect_answers TEXT
-)
-""")
-
 conn.commit()
 

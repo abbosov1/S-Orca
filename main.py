@@ -1,5 +1,6 @@
 import logging
 from aiogram import *
+import asyncio
 from aiogram.filters import StateFilter
 from aiogram.types import (Message, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton,
                            ReactionTypeEmoji, CallbackQuery)
@@ -819,6 +820,13 @@ async def back_to_main_menu(message: Message):
         "Главное меню:" if language == "ru" else "Asiya menyu:",
         reply_markup=main_menu[language]  # Отправляем основное меню
     )
+
+
+async def delete_webhook():
+    await bot.delete_webhook()
+    await bot.session.close()
+
+asyncio.run(delete_webhook())
 
 
 # Запуск бота
