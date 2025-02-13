@@ -3,7 +3,7 @@ import sqlite3
 conn = sqlite3.connect("dz.db")
 cursor = conn.cursor()
 
-# Создание таблиц пользователей
+# Создание таблиц user
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS user (
     user_id INTEGER PRIMARY KEY,
@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS user (
     phone TEXT
 )
 """)
+# Создание таблицы questions
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS questions (
     question_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -21,6 +22,7 @@ CREATE TABLE IF NOT EXISTS questions (
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 """)
+# Создание таблицы forwarded_messages
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS forwarded_messages (
     user_id INTEGER NOT NULL,
@@ -28,6 +30,7 @@ CREATE TABLE IF NOT EXISTS forwarded_messages (
     PRIMARY KEY (forwarded_message_id)
 )
 """)
+# Создание таблицы contests
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS contests (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,7 +40,7 @@ CREATE TABLE IF NOT EXISTS contests (
     status TEXT
 )
 """)
-# Создание таблицы отзывов
+# Создание таблицы reviews
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS reviews (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
